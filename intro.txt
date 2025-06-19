@@ -1,0 +1,23 @@
+hello
+my name is someshwar sarkar
+i am form berhampore, west bengal
+currently i am working at infosys as technology analyst at infosys since 3.6 years 
+i am having experties java, spring boot, microservices, rest api, oracle.
+currently i am looking for a job change for the betterment of myself as well as company.
+
+
+Our project is in the utility domain, and our main client is SCE, which is a centralized authority responsible for managing electricity distribution. They handle how much electricity needs to be supplied to how many customers, and they also manage information related to electricity manufacturers.
+
+We work as backend Java developers and build internal tools for them. The core system is called CDS, which is a centralized database. Our job is to process data as per the business logic and load it into CDS.
+
+We don’t have a frontend on our side. Instead, there’s an internal tool that runs backend services using scheduled cron jobs. These jobs trigger our middleware services, which then process and store the required data in CDS.
+
+The clients have their own frontend UI to monitor this data. Based on what they see, they make decisions like placing bids and managing supply and demand.
+
+
+
+
+1. After a recent update, one of our POST APIs started failing. I saw the error ORA-12899: value too large for column, which meant the data we were trying to insert was too big for the column size in the database. This kind of large data usually doesn’t come, so the column was sized accordingly before. To fix it, we just increased the column size in the database, and the issue got resolved
+
+
+2. In one of the cases, I was facing a unique constraint violation error. We had unique indexes defined on some columns in the database to avoid duplicate records. When the API was trying to insert data, the database was throwing an error because it detected duplicates based on those indexes. After checking, I found that the issue was in the service layer logic—it was unintentionally returning multiple duplicate entries when only one was expected. So, the same data was getting inserted more than once, which triggered the constraint. Once I fixed the logic to return only unique records, the error stopped occurring.
