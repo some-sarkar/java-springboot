@@ -21,3 +21,5 @@ The clients have their own frontend UI to monitor this data. Based on what they 
 
 
 2. In one of the cases, I was facing a unique constraint violation error. We had unique indexes defined on some columns in the database to avoid duplicate records. When the API was trying to insert data, the database was throwing an error because it detected duplicates based on those indexes. After checking, I found that the issue was in the service layer logic—it was unintentionally returning multiple duplicate entries when only one was expected. So, the same data was getting inserted more than once, which triggered the constraint. Once I fixed the logic to return only unique records, the error stopped occurring.
+
+3. We receive some data from 3rd party vendor. While calling those api some value can be null at some times , spme large value can come so it depends on the vendors. So we face delay in from them while inter communication to fixing the issue. 
